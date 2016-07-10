@@ -1,9 +1,9 @@
-# install
+# Install
 ```
 sudo npm install -g
 ```
 
-# usage
+# Usage
 ```
 $ dc -e [something]  // Eng to Kor Dictionary
 
