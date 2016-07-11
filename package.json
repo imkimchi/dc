@@ -10,5 +10,11 @@
   "preferGlobal": true,
   "bin": {
     "dc": "index.js"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "cheerio": "^0.20.0",
+    "commander": "^2.9.0",
+    "request": "^2.73.0"
   }
 }

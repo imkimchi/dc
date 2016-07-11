@@ -14,7 +14,7 @@ let daumDic = defaultDaum + "/search.do?q=";
 let urban = "http://www.urbandictionary.com/define.php?term=";
 
 const Dictionary = function(uri, query) {
-  request(uri + query, function(err, res, html) {
+  request(uri + query, (err, res, html)=> {
     if (!err && res.statusCode == 200) {
       let $ = cheerio.load(html);
       if (uri === daumDic) daumSearch($, query);
@@ -25,7 +25,7 @@ const Dictionary = function(uri, query) {
 
 function daumSearch($, query) {
   detailURL = $('.txt_cleansch').attr('href');
-  request(defaultDaum + detailURL, function(err, res, html){
+  request(defaultDaum + detailURL, (err, res, html)=> {
     if (!err && res.statusCode == 200) {
       let $ = cheerio.load(html);
       let words = $('.inner_top .list_mean .txt_mean');
@@ -48,7 +48,7 @@ function daumSearch($, query) {
 
 function urbanSearch($, query) {
   let definitions = $('.meaning');
-  definitions.each(function(i) {
+  definitions.each((i)=> {
     if(i<2) {
       let sentence = $(this).text().replace(/\n/g, "");
       console.log(`\n${i+1}. ${sentence}\n`);
